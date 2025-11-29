@@ -1,110 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Aula Mágica – Naturaleza</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Aula Mágica – Artefactos y Naturaleza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    /* Layout general centrado y limpio */
     body {
       font-family: "Comic Sans MS", sans-serif;
-      background: linear-gradient(to bottom right, #a2eaff, #f9ffcf);
+      background: linear-gradient(to bottom right, #d4f7d4, #fff9c4);
       margin: 0;
       padding: 0;
-    }
-
-    header {
-      background: #ffb347;
-      padding: 25px;
       text-align: center;
+    }
+    header {
+      background: #4caf50;
+      padding: 25px;
       color: white;
-      font-size: 36px;
+      font-size: 32px;
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-
     nav {
-      background: #fff3af;
+      background: #c8e6c9;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      padding: 15px;
-      font-size: 20px;
+      gap: 12px;
+      padding: 12px;
+      font-size: 18px;
     }
-
     nav a {
       text-decoration: none;
-      color: #ff7b00;
+      color: #2e7d32;
       font-weight: bold;
-      padding: 10px 20px;
+      padding: 8px 16px;
       background: white;
       border-radius: 12px;
-      border: 2px solid #ffb347;
+      border: 2px solid #4caf50;
     }
+    nav a:hover { background: #a5d6a7; }
 
-    nav a:hover {
-      background: #ffe0a3;
-    }
-
+    /* Contenedor de secciones */
     section {
       padding: 20px;
-      margin: 20px;
+      margin: 20px auto;
+      max-width: 980px;
       background: white;
-      border-radius: 25px;
+      border-radius: 20px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
+    h2 { color: #2e7d32; font-size: 26px; margin-top: 0; }
 
-    h2 {
-      color: #ff7b00;
-      text-align: center;
-      font-size: 28px;
+    /* Cajas y objetos del juego DnD */
+    .contenedor {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 12px;
     }
-
-    .img-box, .video-box {
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    img {
-      max-width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      margin: 10px;
-    }
-
-    iframe, video {
+    .caja {
+      width: 42%;
+      min-height: 220px;
+      border: 3px dashed #4caf50;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      margin: 10px;
+      padding: 12px;
+      background: #f9fff4;
     }
-
-    .btn {
-      background: #ff7b00;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 15px;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    .activity-box {
-      padding: 20px;
-      background: #fff8d6;
-      border-radius: 20px;
-      border: 3px dashed #ffb347;
-      text-align: center;
-      font-size: 18px;
-      margin-top: 15px;
-    }
-
-    input {
-      padding: 10px;
-      font-size: 16px;
+    .objeto {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 14px;
+      background: #fff9c4;
+      border: 2px solid #4caf50;
       border-radius: 10px;
-      border: 2px solid #ffb347;
-      width: 80%;
-      max-width: 300px;
+      cursor: grab;
+    }
+
+    /* Bloques de actividad */
+    .activity-box {
+      padding: 18px;
+      background: #f1f8e9;
+      border-radius: 16px;
+      border: 3px dashed #4caf50;
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    /* Botones y resultado */
+    .btn {
+      background: #4caf50;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover { background: #388e3c; }
+    #resultado, #resultadoTotal, #resultadoCuidemos {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    /* Video + Fundación lado a lado */
+    .video-box {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .fundacion {
+      background: #e8f5e9;
+      border: 2px solid #4caf50;
+      border-radius: 15px;
+      padding: 15px;
+      max-width: 320px;
+      text-align: left;
+    }
+    .fundacion h3 {
+      margin: 0 0 8px 0;
+      color: #2e7d32;
+    }
+    .fundacion p {
+      margin: 8px 0;
+    }
+
+    /* Galería de imágenes para "Antes y Ahora" */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .gallery-item {
+      width: 200px;
+      background: #f9fff4;
+      border: 2px solid #4caf50;
+      border-radius: 12px;
+      padding: 10px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .gallery-item p {
+      margin: 8px 0 0 0;
+      font-weight: bold;
+      color: #2e7d32;
     }
   </style>
 </head>
@@ -114,151 +163,362 @@
 
 <!-- 🎵 Música de fondo -->
 <audio autoplay loop>
-  <source src="static/audio/musica_fondo.mp3" type="audio/mp3">
+  <source src="static/audio/musica_fondo.mp3" type="audio/mp3" />
 </audio>
 
 <nav>
   <a href="#introduccion">Introducción</a>
-  <a href="#objetivos">Objetivos</a>
-  <a href="#animales">Animales</a>
-  <a href="#actividad1">Adivinanzas</a>
-  <a href="#actividad2">Colorea</a>
-  <a href="#videos">Videos</a>
+  <a href="#cajas">Juego de las dos cajas</a>
+  <a href="#juego-naturaleza">Antes y Ahora</a>
+  <a href="#adivinanzas">Adivinanzas</a>
+  <a href="#cuidemos">Cuidemos nuestro mundo</a>
+  <a href="#videos">Video educativo</a>
+  <a href="#memory">Juego de Memoria</a>
   <a href="#conclusiones">Conclusiones</a>
   <a href="#bibliografia">Bibliografía</a>
 </nav>
 
-<!-- 🎬 INTRODUCCIÓN -->
+<!-- 🎬 INTRODUCCIÓN con Fundación al lado -->
 <section id="introduccion">
   <h2>🎬 Introducción</h2>
-  <p style="text-align:center;">Mira este video para comenzar tu aventura mágica sobre la naturaleza.</p>
   <div class="video-box">
-    <video controls width="400">
-      <source src="static/VIDEO-2025-11-25-16-31-03.mp4" type="video/mp4">
+    <video controls width="420">
+      <source src="static/VIDEO-2025-11-25-16-31-03.mp4" type="video/mp4" />
       Tu navegador no soporta video.
     </video>
-  </div>
-</section>
-
-<!-- 🎯 OBJETIVOS -->
-<section id="objetivos">
-  <h2>🎯 Objetivos de aprendizaje</h2>
-  <ul>
-    <li>Conocer animales y sus sonidos.</li>
-    <li>Desarrollar habilidades de observación y deducción.</li>
-    <li>Estimular la creatividad a través del arte.</li>
-    <li>Aprender de forma divertida con videos educativos.</li>
-  </ul>
-</section>
-
-<section id="animales">
-  <h2>🐾 Conoce animales</h2>
-  <p style="text-align:center;">Haz clic en el botón para escuchar el sonido del animal.</p>
-  <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-    <div style="text-align: center;">
-      <img src="static/Leon 2.jpg" alt="León" width="250">
-      <br>
-      <button class="btn" onclick="document.getElementById('leon').play()">Rugido del León 🦁</button>
-      <audio id="leon" src="static/sfx-animal-lion.mp3"></audio>
-    </div>
-    <div style="text-align: center;">
-      <img src="static/elefante 2.jpg" alt="Elefante" width="250">
-      <br>
-      <button class="btn" onclick="document.getElementById('elefante').play()">Sonido del Elefante 🐘</button>
-      <audio id="elefante" src="static/Elefant.mp3"></audio>
+    <div class="fundacion">
+      <h3>🌱 Fundación Aula Mágica</h3>
+      <p><strong>Misión:</strong> Inspirar a niños y niñas a cuidar la naturaleza mediante experiencias educativas divertidas.</p>
+      <p><strong>Visión:</strong> Comunidades que aman y protegen su entorno a través del aprendizaje significativo.</p>
+      <p><strong>Valores:</strong> Respeto, curiosidad, trabajo en equipo y amor por la vida.</p>
     </div>
   </div>
 </section>
 
-<!-- ❓ ADIVINANZAS -->
-<section id="actividad1">
-  <h2>❓ Adivinanzas</h2>
+<!-- 🧸 Juego de las dos cajas (Drag & Drop) -->
+<section id="cajas">
+  <h2>🧸 Juego de las dos cajas</h2>
+  <p>Arrastra cada objeto a la caja correcta:</p>
 
+  <div class="contenedor">
+    <div id="naturaleza" class="caja" ondrop="drop(event)" ondragover="allowDrop(event)">
+      🟩 Naturaleza
+    </div>
+    <div id="artefactos" class="caja" ondrop="drop(event)" ondragover="allowDrop(event)">
+      🟦 Artefactos
+    </div>
+  </div>
+
+  <div style="margin-top: 14px;">
+    <div id="hoja" class="objeto" draggable="true" ondragstart="drag(event)">🍃 Hoja</div>
+    <div id="piedra" class="objeto" draggable="true" ondragstart="drag(event)">🪨 Piedra</div>
+    <div id="semilla" class="objeto" draggable="true" ondragstart="drag(event)">🌰 Semilla</div>
+    <div id="cuchara" class="objeto" draggable="true" ondragstart="drag(event)">🥄 Cuchara</div>
+    <div id="juguete" class="objeto" draggable="true" ondragstart="drag(event)">🧸 Juguete</div>
+    <div id="tapa" class="objeto" draggable="true" ondragstart="drag(event)">🟤 Tapa</div>
+  </div>
+
+  <button class="btn" onclick="verificar()">✅ Verificar respuestas</button>
+  <p id="resultado"></p>
+</section>
+
+<!-- 🧩 Antes y Ahora: Imágenes + Preguntas -->
+<section id="juego-naturaleza">
+  <h2>🧩 Naturaleza y Artefactos (Antes y Ahora)</h2>
+
+  <!-- Galería con descripciones (coloca imágenes en /static/) -->
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="static/hoja-arbol-arce-verde.jpg" alt="Hoja de árbol (Naturaleza)" />
+      <p>🍃 Hoja (Naturaleza)</p>
+    </div>
+    <div class="gallery-item">
+      <img src="static/piedra.png" alt="Piedra (Naturaleza)" />
+      <p>🪨 Piedra (Naturaleza)</p>
+    </div>
+    <div class="gallery-item">
+      <img src="static/Cuchara de madera.png" alt="Cuchara de madera (Artefacto antiguo)" />
+      <p>🥄 Cuchara de madera (Antes)</p>
+    </div>
+    <div class="gallery-item">
+      <img src="static/CucharaModerna.jpg" alt="Cuchara moderna de metal o plástico (Artefacto actual)" />
+      <p>🥄 Cuchara moderna (Ahora)</p>
+    </div>
+    <div class="gallery-item">
+      <img src="static/JUguete moderno.jpg" alt="Juguete moderno de plástico (Artefacto actual)" />
+      <p>🧸 Juguete moderno (Ahora)</p>
+    </div>
+    <div class="gallery-item">
+      <img src="static/Semilla.jpg" alt="Semilla (Naturaleza)" />
+      <p>🌱 Semilla (Naturaleza)</p>
+    </div>
+  </div>
+
+  <!-- Preguntas con puntaje -->
   <div class="activity-box">
-    <p><b>“Soy grande, gris y tengo trompa. ¿Quién soy?”</b></p>
-    <input id="respuesta1" placeholder="Escribe tu respuesta">
-    <br><br>
+    <p><b>1. ¿Cuál de estos objetos viene directamente de la naturaleza?</b></p>
+    <input id="respuesta1" placeholder="Escribe tu respuesta" />
     <button class="btn" onclick="check1()">Enviar</button>
     <p id="resultado1"></p>
   </div>
 
   <div class="activity-box">
-    <p><b>“Tengo rayas negras y blancas, parezco un caballo. ¿Quién soy?”</b></p>
-    <input id="respuesta2" placeholder="Escribe tu respuesta">
-    <br><br>
+    <p><b>2. ¿Cuál es un artefacto que usaban antes para comer?</b></p>
+    <input id="respuesta2" placeholder="Escribe tu respuesta" />
     <button class="btn" onclick="check2()">Enviar</button>
     <p id="resultado2"></p>
   </div>
 
   <div class="activity-box">
-    <p><b>“Camino lento, tengo caparazón. ¿Quién soy?”</b></p>
-    <input id="respuesta3" placeholder="Escribe tu respuesta">
-    <br><br>
+    <p><b>3. ¿Cuál es un artefacto moderno que usamos ahora?</b></p>
+    <input id="respuesta3" placeholder="Escribe tu respuesta" />
     <button class="btn" onclick="check3()">Enviar</button>
     <p id="resultado3"></p>
   </div>
+
+  <button class="btn" onclick="verificarTotal()">✅ Verificar puntaje total</button>
+  <p id="resultadoTotal"></p>
 </section>
 
-<script>
-function check1() {
-  let r = document.getElementById("respuesta1").value.toLowerCase();
-  document.getElementById("resultado1").innerHTML = r === "elefante" ? "🎉 ¡Correcto!" : "❌ Intenta de nuevo.";
-}
-function check2() {
-  let r = document.getElementById("respuesta2").value.toLowerCase();
-  document.getElementById("resultado2").innerHTML = r === "cebra" ? "🎉 ¡Correcto!" : "❌ Intenta de nuevo.";
-}
-function check3() {
-  let r = document.getElementById("respuesta3").value.toLowerCase();
-  document.getElementById("resultado3").innerHTML = r === "tortuga" ? "🎉 ¡Correcto!" : "❌ Intenta de nuevo.";
-}
-</script>
+<!-- ❓ Adivinanzas (centradas y con botones) -->
+<section id="adivinanzas">
+  <h2>❓ Adivinanzas sobre Naturaleza y Artefactos</h2>
 
-<!-- 🎨 COLOREAR -->
-<section id="actividad2">
-  <h2>🎨 Actividad para colorear</h2>
-  <p style="text-align:center;">Haz clic en la imagen para abrirla en grande, imprimirla o guardarla.</p>
-  <div class="img-box">
-<a href="static/elefante.png" target="_blank"><img src="static/elefante.png" alt="Colorear Elefante" width="250"></a>
-<a href="static/leon.png" target="_blank"><img src="static/leon.png" alt="Colorear León" width="250"></a>
-<a href="static/tortuga.png" target="_blank"><img src="static/tortuga.png" alt="Colorear Tortuga" width="250"></a>
+  <div class="activity-box">
+    <p><b>“Soy verde, crezco en los árboles y me caigo en otoño. ¿Quién soy?”</b></p>
+    <input id="adv1" placeholder="Escribe tu respuesta" />
+    <button class="btn" onclick="checkAdv1()">Enviar</button>
+    <p id="resAdv1"></p>
+  </div>
 
+  <div class="activity-box">
+    <p><b>“Antes era de madera, ahora soy de metal o plástico. ¿Qué soy?”</b></p>
+    <input id="adv2" placeholder="Escribe tu respuesta" />
+    <button class="btn" onclick="checkAdv2()">Enviar</button>
+    <p id="resAdv2"></p>
+  </div>
+
+  <div class="activity-box">
+    <p><b>“Sirvo para jugar, pero no nací en la naturaleza. ¿Qué soy?”</b></p>
+    <input id="adv3" placeholder="Escribe tu respuesta" />
+    <button class="btn" onclick="checkAdv3()">Enviar</button>
+    <p id="resAdv3"></p>
   </div>
 </section>
 
-<!-- 🎥 VIDEO EDUCATIVO -->
+<!-- 🌎 Cuidemos nuestro mundo -->
+<section id="cuidemos">
+  <h2>🌎 Actividad: Cuidemos nuestro mundo</h2>
+
+  <div class="activity-box">
+    <p><b>1. Si ves basura en el suelo, ¿qué deberías hacer?</b></p>
+    <input id="resp1" placeholder="Escribe tu respuesta" />
+    <button class="btn" onclick="checkResp1()">Enviar</button>
+    <p id="res1"></p>
+  </div>
+
+  <div class="activity-box">
+    <p><b>2. ¿Qué acción ayuda a cuidar el agua?</b></p>
+    <input id="resp2" placeholder="Escribe tu respuesta" />
+    <button class="btn" onclick="checkResp2()">Enviar</button>
+    <p id="res2"></p>
+  </div>
+
+  <div class="activity-box">
+    <p><b>3. ¿Cómo podemos proteger a los animales?</b></p>
+    <input id="resp3" placeholder="Escribe tu respuesta" />
+    <button class="btn" onclick="checkResp3()">Enviar</button>
+    <p id="res3"></p>
+  </div>
+
+  <button class="btn" onclick="verificarCuidemos()">✅ Verificar puntaje</button>
+  <p id="resultadoCuidemos"></p>
+</section>
+
+<!-- 🎥 Video educativo (YouTube) -->
 <section id="videos">
   <h2>🎥 Video educativo</h2>
-  <div class="video-box">
-    <iframe width="350" height="200" src="https://www.youtube.com/embed/USpBzWKhfoo" title="La naturaleza y los seres vivos" allowfullscreen></iframe
+  <div class="video-box" style="justify-content:center;">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/USpBzWKhfoo"
+      title="La naturaleza y los seres vivos"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
 
+<!-- 🧠 Juego de Memoria (Educaplay) -->
 <section id="memory">
   <h2>🧠 Juego de Memoria: Artefactos y Naturaleza</h2>
-  <p style="text-align:center;">Haz clic en las tarjetas para encontrar las parejas entre elementos naturales y artefactos.</p>
-  <div class="video-box">
-    <iframe width="795" height="690" frameborder="0" allowfullscreen
+  <p>Haz clic en las tarjetas para encontrar las parejas entre elementos naturales y artefactos.</p>
+  <div class="video-box" style="justify-content:center;">
+    <iframe
+      width="795"
+      height="690"
+      frameborder="0"
+      allowfullscreen
       src="https://es.educaplay.com/recursos-educativos/22429963-juego_de_memoria_elementos_de_la_naturaleza.html">
     </iframe>
   </div>
 </section>
 
-<!-- 📚 CONCLUSIONES -->
+<!-- 📚 Conclusiones -->
 <section id="conclusiones">
   <h2>📚 Conclusiones</h2>
-  <p>
-    El Aula Mágica ha demostrado ser una herramienta efectiva para introducir a los niños en el mundo de la naturaleza de forma divertida y significativa. A través de actividades interactivas como sonidos de animales, adivinanzas, colorear y videos educativos, se logró estimular la curiosidad, la creatividad y el aprendizaje autónomo.
-  </p>
-  <p>
-    La estructura del AVA permitió una navegación clara y motivadora, con recursos visuales y auditivos que enriquecen la experiencia. Además, el uso de música de fondo y una interfaz amigable contribuyó a crear un ambiente virtual cálido y atractivo para los estudiantes.
-  </p>
-  <p>
-    Este proyecto puede ser replicado y ampliado con nuevos contenidos, adaptándose a diferentes temáticas y niveles educativos.
-  </p>
+  <p>El Aula Mágica permite aprender sobre la naturaleza y los artefactos con actividades interactivas, videos y juegos divertidos.</p>
+  <p>Promueve la curiosidad, el cuidado del entorno y el trabajo en equipo, haciendo del aprendizaje una experiencia significativa.</p>
 </section>
 
-<!-- 📖 BIBLIOGRAFÍA -->
+<!-- 📖 Bibliografía -->
 <section id="bibliografia">
   <h2>📖 Bibliografía</h2>
-  <ul>
-    <li>Ministerio de Educación Nacional de Colombia. (2020). <i>Guía para la implementación de Ambientes Virtuales de Aprendizaje</i>.</li>
-    <li>Wikimedia Commons.
+  <ul style="text-align:left; max-width:700px; margin:0 auto;">
+    <li>Ministerio de Educación Nacional de Colombia (2020). Guía para la implementación de Ambientes Virtuales de Aprendizaje.</li>
+    <li>Wikimedia Commons (imágenes libres de uso educativo, según licencia indicada).</li>
+  </ul>
+</section>
+
+<!-- =================== SCRIPTS =================== -->
+<script>
+  /* Drag & Drop: juego de las dos cajas */
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+  function drop(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const draggedEl = document.getElementById(data);
+
+    // Asegurar que se suelta dentro de la caja (no sobre un hijo)
+    let target = ev.target;
+    if (!target.classList.contains('caja')) {
+      // Si el target es un hijo dentro de la caja, subimos al contenedor caja
+      target = target.closest('.caja');
+    }
+    if (target) target.appendChild(draggedEl);
+  }
+  function verificar() {
+    let aciertos = 0;
+
+    const naturales = ["hoja", "piedra", "semilla"];
+    const artefs = ["cuchara", "juguete", "tapa"];
+
+    const boxNaturaleza = document.getElementById("naturaleza");
+    const boxArtefactos = document.getElementById("artefactos");
+
+    // Contar aciertos en Naturaleza
+    Array.from(boxNaturaleza.children).forEach(el => {
+      if (naturales.includes(el.id)) aciertos++;
+    });
+    // Contar aciertos en Artefactos
+    Array.from(boxArtefactos.children).forEach(el => {
+      if (artefs.includes(el.id)) aciertos++;
+    });
+
+    document.getElementById("resultado").innerText = "🎉 Aciertos: " + aciertos + " de 6";
+  }
+
+  /* Preguntas: Antes y Ahora */
+  let puntos = 0;
+  function normalize(txt) {
+    return txt.toLowerCase().trim();
+  }
+  function check1() {
+    const r = normalize(document.getElementById("respuesta1").value);
+    if (r.includes("hoja") || r.includes("piedra") || r.includes("semilla")) {
+      document.getElementById("resultado1").innerText = "🎉 ¡Correcto!";
+      puntos++;
+    } else {
+      document.getElementById("resultado1").innerText = "❌ Intenta de nuevo.";
+    }
+  }
+  function check2() {
+    const r = normalize(document.getElementById("respuesta2").value);
+    if (r.includes("madera") || r.includes("cuchara antigua") || r.includes("cuchara de madera")) {
+      document.getElementById("resultado2").innerText = "🎉 ¡Correcto!";
+      puntos++;
+    } else {
+      document.getElementById("resultado2").innerText = "❌ Intenta de nuevo.";
+    }
+  }
+  function check3() {
+    const r = normalize(document.getElementById("respuesta3").value);
+    if (r.includes("metal") || r.includes("plástico") || r.includes("cuchara moderna") || r.includes("juguete")) {
+      document.getElementById("resultado3").innerText = "🎉 ¡Correcto!";
+      puntos++;
+    } else {
+      document.getElementById("resultado3").innerText = "❌ Intenta de nuevo.";
+    }
+  }
+  function verificarTotal() {
+    let mensaje = "";
+    if (puntos === 3) mensaje = "🌟 ¡Excelente! Todas tus respuestas son correctas.";
+    else if (puntos === 2) mensaje = "👍 Muy bien, acertaste 2 de 3. ¡Sigue practicando!";
+    else if (puntos === 1) mensaje = "🙂 Acertaste 1 de 3. ¡Puedes mejorar!";
+    else mensaje = "😅 No acertaste ninguna. ¡Intenta de nuevo!";
+    document.getElementById("resultadoTotal").innerText = mensaje;
+    puntos = 0; // reinicia para otra ronda
+  }
+
+  /* Adivinanzas: respuestas y verificación */
+  function checkAdv1() {
+    const r = normalize(document.getElementById("adv1").value);
+    document.getElementById("resAdv1").innerText = r.includes("hoja") ? "🎉 ¡Correcto! Es una hoja." : "❌ Intenta de nuevo.";
+  }
+  function checkAdv2() {
+    const r = normalize(document.getElementById("adv2").value);
+    document.getElementById("resAdv2").innerText = r.includes("cuchara") ? "🎉 ¡Correcto! Es una cuchara." : "❌ Intenta de nuevo.";
+  }
+  function checkAdv3() {
+    const r = normalize(document.getElementById("adv3").value);
+    document.getElementById("resAdv3").innerText = r.includes("juguete") ? "🎉 ¡Correcto! Es un juguete." : "❌ Intenta de nuevo.";
+  }
+
+  /* Cuidemos nuestro mundo: verificación con puntaje */
+  let puntosCuidemos = 0;
+  function checkResp1() {
+    const r = normalize(document.getElementById("resp1").value);
+    if (r.includes("recoger") || r.includes("caneca") || r.includes("tirar la basura")) {
+      document.getElementById("res1").innerText = "🎉 ¡Correcto!";
+      puntosCuidemos++;
+    } else {
+      document.getElementById("res1").innerText = "❌ Intenta de nuevo.";
+    }
+  }
+  function checkResp2() {
+    const r = normalize(document.getElementById("resp2").value);
+    if (r.includes("cerrar") || r.includes("grifo") || r.includes("ahorrar")) {
+      document.getElementById("res2").innerText = "🎉 ¡Correcto!";
+      puntosCuidemos++;
+    } else {
+      document.getElementById("res2").innerText = "❌ Intenta de nuevo.";
+    }
+  }
+  function checkResp3() {
+    const r = normalize(document.getElementById("resp3").value);
+    if (r.includes("cuidar") || r.includes("proteger") || r.includes("no maltratar")) {
+      document.getElementById("res3").innerText = "🎉 ¡Correcto!";
+      puntosCuidemos++;
+    } else {
+      document.getElementById("res3").innerText = "❌ Intenta de nuevo.";
+    }
+  }
+  function verificarCuidemos() {
+    let mensaje = "";
+    if (puntosCuidemos === 3) mensaje = "🌟 ¡Excelente! Sabes cómo cuidar nuestro mundo.";
+    else if (puntosCuidemos === 2) mensaje = "👍 Muy bien, acertaste 2 de 3. ¡Sigue practicando!";
+    else if (puntosCuidemos === 1) mensaje = "🙂 Acertaste 1 de 3. ¡Puedes mejorar!";
+    else mensaje = "😅 No acertaste ninguna. ¡Intenta de nuevo!";
+    document.getElementById("resultadoCuidemos").innerText = mensaje;
+    puntosCuidemos = 0; // reinicia para otra ronda
+  }
+</script>
+
+</body>
+</html>
